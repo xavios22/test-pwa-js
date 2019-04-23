@@ -80,7 +80,16 @@ class PWAConfApp {
     }
   }
 }
-
 window.addEventListener('load', e => {
   new PWAConfApp();
 });
+
+if ( window.Notification && Notification.permission !== 'denied' ){
+  Notification.requestPermission(status => {
+    console.log(status)
+    let n = new Notification('titre', {
+      body:'First Notification',
+      icon:'./img/icons/icon-72x72.png'
+    })
+  })
+}

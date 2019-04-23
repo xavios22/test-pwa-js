@@ -3,14 +3,16 @@
 const cacheName = 'pwa-conf-v1';
 const staticAssets = ['./', './index.html', './app.js', './styles.css'];
 
-self.addEventListener('install', async event => {
+self.addEventListener('install', async _event => {
   const cache = await caches.open(cacheName);
   await cache.addAll(staticAssets);
+  console.log('evetement installlé')
 });
 
 
 self.addEventListener('activate', event => {
   event.waitUntil(self.clients.claim());
+  console.log('evetement activé')
 });
 
 self.addEventListener('fetch', event => {
@@ -21,6 +23,7 @@ self.addEventListener('fetch', event => {
   } else {
     event.respondWith(cacheFirst(req));
   }
+  console.log('event sw installé')
 });
 
 async function cacheFirst(req) {
