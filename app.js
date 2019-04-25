@@ -87,7 +87,7 @@ window.addEventListener('load', e => {
 if ( window.Notification && Notification.permission !== 'denied' ){
   Notification.requestPermission(status => {
     console.log(status)
-    let n = new Notification('titre', {
+    let n = new Notification('Notification test', {
       body:'First Notification',
       icon:'./img/icons/icon-72x72.png'
     })

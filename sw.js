@@ -6,13 +6,13 @@ const staticAssets = ['./', './index.html', './app.js', './styles.css'];
 self.addEventListener('install', async _event => {
   const cache = await caches.open(cacheName);
   await cache.addAll(staticAssets);
-  console.log('evetement installlé')
+  console.log('evenement installé')
 });
 
 
 self.addEventListener('activate', event => {
   event.waitUntil(self.clients.claim());
-  console.log('evetement activé')
+  console.log('evenement activé')
 });
 
 self.addEventListener('fetch', event => {
@@ -23,7 +23,7 @@ self.addEventListener('fetch', event => {
   } else {
     event.respondWith(cacheFirst(req));
   }
-  console.log('event sw installé')
+  console.log('evenement sw installé')
 });
 
 async function cacheFirst(req) {
