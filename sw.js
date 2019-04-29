@@ -1,19 +1,19 @@
 
 
 const cacheName = 'pwa-conf-v1';
-const staticAssets = ['./', './index.html', './app.js', './styles.css','./manifest.json','./schedule.json','./speakers.json','./img'];
+const staticAssets = ['./', './index.html', './app.js', './styles.css','./manifest.json','./schedule.json','./speakers.json'];
 
 self.addEventListener('install', async _event => {
   const cache = await caches.open(cacheName);
   await cache.addAll(staticAssets);
   console.log('evenement installé')
-});
+})
 
 
 self.addEventListener('activate', event => {
   event.waitUntil(self.clients.claim());
   console.log('evenement activé')
-});
+})
 
 self.addEventListener('fetch', event => {
   const req = event.request;
@@ -24,7 +24,7 @@ self.addEventListener('fetch', event => {
     event.respondWith(cacheFirst(req));
   }
   console.log('evenement sw installé')
-});
+})
 
 async function cacheFirst(req) {
   const cache = await caches.open(cacheName);
