@@ -92,4 +92,5 @@ if ( window.Notification && Notification.permission !== 'denied' ){
       icon:'./img/icons/icon-72x72.png'
     })
   })
+ 
 }
